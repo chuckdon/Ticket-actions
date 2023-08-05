@@ -9,12 +9,15 @@ on:
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+  
+  
 jobs:
    permissions: null
    contents: write
    issues: write
    pull-requests: write
    runs-on: ubuntu-latest
+   
    steps:
      - name: Checkout
        uses: actions/checkout@v2
@@ -30,7 +33,8 @@ jobs:
        run: terraform validate
      - name: Terraform plan
        run: terraform plan
+     
      - name: release
        run: npx semantic-release
-    env:
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
