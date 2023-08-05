@@ -1,4 +1,4 @@
-name: 'shell-command'
+name: 'terraform'
 
 on:
   push:
@@ -11,8 +11,14 @@ on:
 env:   
   AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
-
 jobs:
+  jobs:
+  terraform_workflow:
+  permissions:
+  contents: write
+  issues: write
+  pull_requests: write
+  
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -38,14 +44,16 @@ jobs:
 
       - name: Terraform plan
         run: terraform plan 
-      - name: Terraform apply
-        run: terraform apply --auto-approve
+     # - name: Terraform apply
+     #   run: terraform apply --auto-approve
 
-      - name: Terraform apply
-        run: terraform apply --auto-approve
+     # - name: Terraform apply
+     #   run: terraform apply --auto-approve
 
-      - name: Terraform destroy
-        run: terraform destroy --auto-approve
-      
-        
+      - name: release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+
+    
