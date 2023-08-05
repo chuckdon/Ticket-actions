@@ -1,4 +1,4 @@
-name: 'myTerraform Production'
+name: 'shell-command'
 
 on:
   push:
