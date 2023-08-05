@@ -11,8 +11,14 @@ on:
 env:   
   AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
-
 jobs:
+  jobs:
+  terraform_workflow:
+  permissions:
+  contents: write
+  issues: write
+  pull_requests: write
+  
   build:
     name: Build
     runs-on: ubuntu-latest
