@@ -1,4 +1,4 @@
-name: myterraform
+name:terraform
 on:
   push:
     branches:
