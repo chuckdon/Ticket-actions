@@ -1,6 +1,6 @@
 name: release workflow
 
-on: [workflow_dispatch]
+on: [push]
 
 jobs:
   run-shell-command:
