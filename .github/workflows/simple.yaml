@@ -35,7 +35,8 @@ jobs:
     - name: Terraform plan
       run: terraform plan
      
-    - name: release
-      run: npm semantic-release
+    - name: Run semantic-release with Docker
+      run: docker run --rm -v "$(pwd):/app" -w /app node:18 bash /path/to/run-semantic-release.sh
       env:
-       GITHUB_TOKEN: ${{secrets.MY_TOKEN}}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
