@@ -35,7 +35,7 @@ jobs:
       run: terraform plan
      
     - name: release
-      run: npx semantic-release
+      run:  docker run --rm -v "$(pwd):/app" -w /app node:14 npx semantic-release
       env:
        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
      
