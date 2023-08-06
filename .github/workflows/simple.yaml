@@ -36,6 +36,6 @@ jobs:
       run: terraform plan
      
     - name: release
-      run: npx semantic-release
+      run: npm semantic-release
       env:
        GITHUB_TOKEN: ${{secrets.MY_TOKEN}}
