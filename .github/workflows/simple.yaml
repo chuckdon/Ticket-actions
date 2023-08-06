@@ -35,6 +35,8 @@ jobs:
       run: terraform plan
      
     - name: release
-      run: ./node_modules/.bin/semantic-release
+      run: bash -c 'npx semantic-release'
       env:
        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      
+     
