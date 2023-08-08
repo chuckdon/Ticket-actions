@@ -1,11 +1,12 @@
-name: myterraform
+name: my-terraform
+
 on:
   push:
     branches:
-      - master
+    - master
   pull_request:
     branches:
-      - master
+    - master
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
@@ -35,6 +36,13 @@ jobs:
       run: terraform plan
      
     - name: release
-      run: npx semantic-release
+      run: chmod +x node_modules/.bin/semantic-release && ./node_modules/.bin/semantic-release
       env:
-       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    
+    
+    
+    
+    
+       
