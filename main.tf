@@ -5,9 +5,10 @@ provider "aws" {
 
 resource "aws_vpc" "actions" {
   cidr_block = "10.0.0.0/16"
+  
   tags = {
-    name       = "donnettech"
-    team       = "devops"
-    Enviroment = "prod"
+    name  = "donnettech"
+    team  = "devops"
+  
   }
 }
