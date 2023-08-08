@@ -42,15 +42,17 @@ jobs:
       - name: Terraform plan
         run: terraform plan
 
-      - name: Create a release
-        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+      - name: Checkout
+        uses: actions/checkout@v2 # clone a repository
+
+      - name: Release
         run: chmod +x node_modules/.bin/semantic-release && ./node_modules/.bin/semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    
-    
-    
+      - name: Terraform apply
+        run: terraform apply -auto-approve
+
     
     
     
