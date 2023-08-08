@@ -35,10 +35,11 @@ jobs:
     - name: Terraform plan
       run: terraform plan
      
-    - name: release
-      run: bash "/C:\Users\donne\Music\actions\sementic\node_modules"
+    - name: Create a release
+      if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+      run: npx semantic-release
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
     
     
        
