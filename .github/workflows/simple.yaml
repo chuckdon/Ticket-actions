@@ -36,8 +36,7 @@ jobs:
       run: terraform plan
      
     - name: release
-      run: bash "/full/path/to/your/C/Users/donne/Music/actions/sementic/node_modules/.bin/semantic-release"
-      env:
+      run: bash "/full/path/to/your/C/Users/donne/Music/actions/sementic/node_modules
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     
