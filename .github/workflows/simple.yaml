@@ -35,10 +35,8 @@ jobs:
     - name: Terraform plan
       run: terraform plan
      
-    - name: release
-      run: /C/Users/donne/Music/actions/sementic/node_modules/.bin/semantic-release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Test Node.js
+      run: node -e "console.log('Node.js is working')"
     
     
     
