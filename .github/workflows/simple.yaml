@@ -1,4 +1,4 @@
-name: my-terraform
+name:my-terraform
 
 on:
   push:
@@ -36,7 +36,8 @@ jobs:
       run: terraform plan
      
     - name: release
-      run: bash "/full/path/to/your/C/Users/donne/Music/actions/sementic/node_modules
+      run: bash "/C:\Users\donne\Music\actions\sementic\node_modules"
+      env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     
