@@ -12,3 +12,17 @@ resource "aws_vpc" "actions" {
 
   }
 }
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+
+  backend "s3" {
+    bucket = "donnetbuct"
+    key    = Terraform.tfstate
+    region = "us-east-1"
+  }
+}
