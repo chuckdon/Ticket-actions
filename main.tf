@@ -16,13 +16,15 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 3.0" # Update the version to the latest compatible version
     }
   }
 
   backend "s3" {
-    bucket = "donnetbuct"
-    key    = terraform.tfstate
-    region = "us-east-1"
+    bucket = "donnetbucket"           # Replace this with the name of your S3 bucket
+    key    = "terraform.tfstate" # The name of the state file in the bucket
+    region = "us-east-1"              # Change this to your desired AWS region for the bucket
+    # Optional: specify a DynamoDB table for state locking (recommended for production)
+    # dynamodb_table = "terraform-state-lock"
   }
-}
+  }
