@@ -22,7 +22,7 @@ terraform {
 
   backend "s3" {
     bucket = "donnetbuct"
-    key    = Terraform.tfstate
+    key    = terraform.tfstate
     region = "us-east-1"
   }
 }
