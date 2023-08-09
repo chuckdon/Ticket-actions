@@ -10,6 +10,7 @@ resource "aws_vpc" "actions" {
     Name        = "donnettech"
     team        = "devops"
     Environment = "prod"
+    Division    = "HR"
 
   }
 }
